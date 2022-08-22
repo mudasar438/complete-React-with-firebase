@@ -36,24 +36,36 @@ class State extends Component {
       name: "Iqbal",
     });
   };
+handleChange = (e) => {
+    console.log(e.target.value)
+   
+        const search = this.state.person.filter((item)=>{
+            console.log(item.name)
+            return(item.name.includes(e.target.value)
+           
+            
+            )
+
+        })
+        this.setState(
+        {
+            person:search
+        })
+        
+        }
+
+ 
   render() {
     return (
       <div>
-        {/* <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <label htmlFor="name">Name:</label>
-                        <input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
-                    </div>
-                    <div>
-                        <label htmlFor="age">Age:</label>
-                        <input type="number" name="age" value={this.state.age} onChange={this.handleChange} />
-                    </div>
-                    <button type="submit">Submit</button>
-                </form> */}
+        
         <p>{this.state.name}</p>
         <button onClick={() => this.myname()}>Change Name</button>
 
         <p>Using Map Methord in class base Component </p>
+        <input type="search" placeholder="search name" className="search-box"onChange={(e)=>this.handleChange(e)} />
+        <button>Click</button>
+  
     {
         this.state.person.map((item, index) => {
             return(
